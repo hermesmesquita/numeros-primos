@@ -6,10 +6,29 @@
 
 <body>
     <h1>Desafio DIO</h1>
-    <h3>Números Primos</h3>
+    <h3>Números Pares</h3>
     <br>
-    <input type="number" onchange ="document.getElementById('result').innerHTML = 'o resultado aparecerá aqui!'">
+    <input  type="number" 
+            id="entrada" 
+            onchange = "imprimeResultado(document.getElementById('entrada').value)">
     <p id="result"></p>
+
+
+
+    <script>
+        function imprimeResultado(valorDeEntrada){
+            document.getElementById("result").innerHTML = par(valorDeEntrada)
+        }
+
+        // retorna verdadeiro para valores pares
+        function par(n){
+            if (n%2==0) {
+                return true
+            } else {
+                return false
+            }
+        }
+    </script>
 </body>
 
 </html>
