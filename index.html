@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <title>Desafio DIO</title>
 </head>
@@ -11,23 +11,22 @@
   <input  type="number" 
           id="entrada"
           min="1" max="1000"
-          onkeydown = 'imprime(document.getElementById("entrada").value)'
+          onkeyup = 'imprime(document.getElementById("entrada").value)'
+          onchange = 'imprime(document.getElementById("entrada").value)'
   >
   <p id="result"></p>
-
-
-
+<!-- Acima apresentação -->
+<!-- Abaixo lógica -->
   <script>
     function imprime(valorDeEntrada){
-        document.getElementById("result").innerHTML = `Os divisores de ${valorDeEntrada} são ${divisores(valorDeEntrada)} <br> Assim, ${valorDeEntrada} ${primo(valorDeEntrada)?" é primo":" não é primo"}`
+        document.getElementById("result").innerHTML = 
+        `Os divisores de ${valorDeEntrada} são ${divisores(valorDeEntrada)} <br>
+        Números primos são aqueles divisíveis apenas por 1 e por ele mesmo. <br>
+        Assim, ${valorDeEntrada} ${primo(valorDeEntrada)?" é primo.":" não é primo."} <br>`
     }
     // verdade se primos
     function primo(n) {
-      if (divisores(n).length != 2){
-        return false
-      }else{
-        return true
-      }
+      return (divisores(n).length != 2) ? false : true
     }
 
     // retorna um array com divisores de n
@@ -45,7 +44,5 @@
     // se par
     function par(n) {return (n%2==0)}
   </script>
-
 </body>
-
 </html>
