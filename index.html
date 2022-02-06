@@ -5,13 +5,13 @@
 </head>
 
 <body>
-  <h1>Desafio DIO</h1>
-  <h3>Números Pares</h3>
+  <h1>Desafio DIO - Encontrando números primos</h1>
+  <h3>Entre com algum valor na caixa abaixo e confira se é primo.</h3>
   <br>
   <input  type="number" 
           id="entrada"
           min="1" max="1000"
-          onchange = 'imprime(document.getElementById("entrada").value)'
+          onkeydown = 'imprime(document.getElementById("entrada").value)'
   >
   <p id="result"></p>
 
@@ -19,11 +19,15 @@
 
   <script>
     function imprime(valorDeEntrada){
-        document.getElementById("result").innerHTML = divisores(valorDeEntrada)
+        document.getElementById("result").innerHTML = `Os divisores de ${valorDeEntrada} são ${divisores(valorDeEntrada)} <br> Assim, ${valorDeEntrada} ${primo(valorDeEntrada)?" é primo":" não é primo"}`
     }
-    // verdade se primo
+    // verdade se primos
     function primo(n) {
-      
+      if (divisores(n).length != 2){
+        return false
+      }else{
+        return true
+      }
     }
 
     // retorna um array com divisores de n
@@ -31,9 +35,10 @@
 
       let divisores = [] // declara divisores
 
-      for (let i = 1; i <= n; i++) {
-        n % i == 0 ? divisores.push(i) : null  
+      for (let i = 1; i <= n; i++) {//conta de 1 a n
+        n % i == 0 ? divisores.push(i) : null// acrescenta o divisor corrente
       }
+
       return divisores
     }
     
