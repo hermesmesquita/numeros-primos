@@ -5,30 +5,42 @@
 </head>
 
 <body>
-    <h1>Desafio DIO</h1>
-    <h3>Números Pares</h3>
-    <br>
-    <input  type="number" 
-            id="entrada" 
-            onchange = "imprimeResultado(document.getElementById('entrada').value)">
-    <p id="result"></p>
+  <h1>Desafio DIO</h1>
+  <h3>Números Pares</h3>
+  <br>
+  <input  type="number" 
+          id="entrada"
+          min="1" max="1000"
+          onchange = 'imprime(document.getElementById("entrada").value)'
+  >
+  <p id="result"></p>
 
 
 
-    <script>
-        function imprimeResultado(valorDeEntrada){
-            document.getElementById("result").innerHTML = par(valorDeEntrada)
-        }
+  <script>
+    function imprime(valorDeEntrada){
+        document.getElementById("result").innerHTML = divisores(valorDeEntrada)
+    }
+    // verdade se primo
+    function primo(n) {
+      
+    }
 
-        // retorna verdadeiro para valores pares
-        function par(n){
-            if (n%2==0) {
-                return true
-            } else {
-                return false
-            }
-        }
-    </script>
+    // retorna um array com divisores de n
+    function divisores(n) {
+
+      let divisores = [] // declara divisores
+
+      for (let i = 1; i <= n; i++) {
+        n % i == 0 ? divisores.push(i) : null  
+      }
+      return divisores
+    }
+    
+    // se par
+    function par(n) {return (n%2==0)}
+  </script>
+
 </body>
 
 </html>
